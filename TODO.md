@@ -1,0 +1,1043 @@
+## Configuration
+- [ ] firewall
+  - [ ] all-ping [enable | disable]
+  - [ ] broadcast-ping [enable | disable] 
+  - [ ] ip-src-route [enable | disable] 
+  - [ ] ipv6-src-route [enable | disable]
+  - [ ] receive-redirects [enable | disable]
+  - [ ] ipv6-receive-redirects [enable | disable
+  - [ ] send-redirects [enable | disable]
+  - [ ] log-martians [enable | disable] 
+  - [ ] source-validation [strict | loose | disable]
+  - [ ] syn-cookies [enable | disable] 
+  - [ ] twa-hazards-protection [enable | disable]
+  - [ ] state-policy
+    - [ ] established action [accept | drop | reject] 
+    - [ ] established log enable 
+    - [ ] invalid action [accept | drop | reject]
+    - [ ] invalid log enable 
+    - [ ] related action [accept | drop | reject]
+    - [ ] related log enable 
+  - [ ] group
+    - [ ] address-group <name> address [address | address range]
+    - [ ] address-group <name> description <text> 
+    - [ ] network-group <name> network <CIDR>
+    - [ ] network-group <name> description <text> 
+    - [ ] ipv6-address-group <name> address <address> 
+    - [ ] ipv6-address-group <name> description <text> 
+    - [ ] ipv6-network-group <name> network <CIDR> 
+    - [ ] ipv6-network-group <name> description <text> 
+    - [ ] port-group <name> port [portname | portnumber | startport-endport]
+    - [ ] port-group <name> description <text>
+  - [ ] name <name> description <text> 
+  - [ ] name <name> default-action [drop | reject | accept]
+  - [ ] name <name> enable-default-log 
+  - [ ] name <name> rule <1-9999> action [drop | reject | accept] 
+  - [ ] name <name> rule <1-9999> description <text> 
+  - [ ] name <name> rule <1-9999> log [disable | enable] 
+  - [ ] name <name> rule <1-9999> disable 
+  - [ ] name <name> rule <1-9999> source address [address | addressrange | CIDR] 
+  - [ ] name <name> rule <1-9999> destination address [address | addressrange | CIDR]
+  - [ ] name <name> rule <1-9999> source mac-address <mac-address> 
+  - [ ] name <name> rule <1-9999> source port [1-65535 | portname | start-end] 
+  - [ ] name <name> rule <1-9999> destination port [1-65535 | portname | start-end] 
+  - [ ] name <name> rule <1-9999> source group address-group <name> 
+  - [ ] name <name> rule <1-9999> destination group address-group <name>  
+  - [ ] name <name> rule <1-9999> source group network-group <name>
+  - [ ] name <name> rule <1-9999> destination group network-group <name> 
+  - [ ] name <name> rule <1-9999> state [established | invalid | new | related][enable | disable ]
+  - [ ] name <name> rule <1-9999> source group port-group <name>
+  - [ ] name <name> rule <1-9999> destination group port-group <name> 
+  - [ ] ipv6-name <name> rule <1-9999> source group port-group <name> 
+  - [ ] ipv6-name <name> rule <1-9999> destination group port-group <name>
+  - [ ] name <name> rule <1-9999> protocol [<text> | <0-255> | all | tcp_udp]
+  - [ ] ipv6-name <name> rule <1-9999> protocol [<text> | <0-255> | all | tcp_udp] 
+  - [ ] name <name> rule <1-9999> tcp flags <text> 
+  - [ ] ipv6-name <name> rule <1-9999> tcp flags <text> 
+  - [ ] ipv6-name <name> rule <1-9999> state [established | invalid | new | related][enable | disable ]
+  - [ ] ipv6-name <name> rule <1-9999> source mac-address <mac-address> 
+  - [ ] ipv6-name <name> rule <1-9999> source address [address | addressrange | CIDR] 
+  - [ ] ipv6-name <name> description <text>
+  - [ ] ipv6-name <name> default-action [drop | reject | accept] 
+  - [ ] ipv6-name <name> enable-default-log
+  - [ ] ipv6-name <name> rule <1-9999> action [drop | reject | accept]
+  - [ ] ipv6-name <name> rule <1-9999> description <text> 
+  - [ ] ipv6-name <name> rule <1-9999> log [disable | enable] 
+  - [ ] ipv6-name <name> rule <1-9999> disable
+  - [ ] ipv6-name <name> rule <1-9999> destination address [address | addressrange | CIDR] 
+  - [ ] ipv6-name <name> rule <1-9999> source port [1-65535 | portname | start-end] 
+  - [ ] ipv6-name <name> rule <1-9999> destination port [1-65535 | portname | start-end] 
+  - [ ] ipv6-name <name> rule <1-9999> source group address-group <name> 
+  - [ ] ipv6-name <name> rule <1-9999> destination group address-group <name>
+  - [ ] ipv6-name <name> rule <1-9999> source group network-group <name> 
+  - [ ] ipv6-name <name> rule <1-9999> destination group network-group <name>
+  - [ ] options interface <interface> adjust-mss <number-of-bytes> 
+  - [ ] options interface <interface> adjust-mss6 <number-of-bytes> 
+- [ ] high-availability
+- [ ] interfaces
+  - [ ] bond
+    - [ ] <interface> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect 
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> mtu <mtu> 
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter
+    - [ ] <interface> ip disable-forwarding
+    - [ ] <interface> ip enable-arp-accept
+    - [ ] <interface> ip enable-arp-announce
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp 
+    - [ ] <interface> ip proxy-arp-pvlan 
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf
+    - [ ] <interface> ipv6 address eui64 <prefix> 
+    - [ ] <interface> ipv6 address no-default-link-local 
+    - [ ] <interface> ipv6 disable-forwarding
+    - [ ] <interface> vrf <vrf> 
+    - [ ] <interface> dhcp-options client-id <description> 
+    - [ ] <interface> dhcp-options host-name <hostname> 
+    - [ ] <interface> dhcp-options vendor-class-id <vendor-id> 
+    - [ ] <interface> dhcp-options no-default-route
+    - [ ] <interface> dhcp-options default-route-distance <distance> 
+    - [ ] <interface> dhcp-options reject <address> 
+    - [ ] <interface> dhcpv6-options duid <duid>
+    - [ ] <interface> dhcpv6-options parameters-only
+    - [ ] <interface> dhcpv6-options rapid-commit 
+    - [ ] <interface> dhcpv6-options temporary
+    - [ ] <interface> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> sla-id <id> 
+    - [ ] <interface> member interface <member> 
+    - [ ] <interface> mode <802.3ad | active-backup | broadcast | round-robin | transmit-load-balance | adaptive-load-balance | xor-hash> 
+    - [ ] <interface> min-links <0-16> 
+    - [ ] <interface> hash-policy <policy>
+    - [ ] <interface> primary <interface>
+    - [ ] <interface> arp-monitor interval <time> 
+    - [ ] <interface> arp-monitor target <address>
+    - [ ] <interface> xdp
+    - [ ] <interface> vif <vlan-id> 
+    - [ ] <interface> vif <vlan-id> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> vif <vlan-id> description <description> 
+    - [ ] <interface> vif <vlan-id> disable
+    - [ ] <interface> vif <vlan-id> disable-link-detect 
+    - [ ] <interface> vif <vlan-id> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> vif <vlan-id> mtu <mtu>
+    - [ ] <interface> vif <vlan-id> ip arp-cache-timeout
+    - [ ] <interface> vif <vlan-id> ip disable-arp-filter 
+    - [ ] <interface> vif <vlan-id> ip disable-forwarding 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-accept
+    - [ ] <interface> vif <vlan-id> ip enable-arp-announce 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-ignore
+    - [ ] <interface> vif <vlan-id> ip enable-proxy-arp 
+    - [ ] <interface> vif <vlan-id> ip proxy-arp-pvlan 
+    - [ ] <interface> vif <vlan-id> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> vif <vlan-id> ipv6 address autoconf
+    - [ ] <interface> vif <vlan-id> ipv6 address eui64 <prefix> 
+    - [ ] <interface> vif <vlan-id> ipv6 address no-default-link-local 
+    - [ ] <interface> vif <vlan-id> ipv6 disable-forwarding
+    - [ ] <interface> vif <vlan-id> vrf <vrf> 
+    - [ ] <interface> vif <vlan-id> dhcp-options client-id <description>
+    - [ ] <interface> vif <vlan-id> dhcp-options host-name <hostname> 
+    - [ ] <interface> vif <vlan-id> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> vif <vlan-id> dhcp-options no-default-route 
+    - [ ] <interface> vif <vlan-id> dhcp-options default-route-distance <distance>
+    - [ ] <interface> vif <vlan-id> dhcp-options reject <address>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options duid <duid> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options parameters-only 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options rapid-commit
+    - [ ] <interface> vif <vlan-id> dhcpv6-options temporary
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> length <length> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> sla-id <id> 
+    - [ ] <interface> mirror ingress <monitor-interface> 
+    - [ ] <interface> mirror egress <monitor-interface>
+  - [ ] bridge
+    - [ ] <interface> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> mtu <mtu> 
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter
+    - [ ] <interface> ip disable-forwarding
+    - [ ] <interface> ip enable-arp-accept
+    - [ ] <interface> ip enable-arp-announce
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf
+    - [ ] <interface> ipv6 address eui64 <prefix> 
+    - [ ] <interface> ipv6 address no-default-link-local
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf>
+    - [ ] <interface> dhcp-options client-id <description> 
+    - [ ] <interface> dhcp-options host-name <hostname>
+    - [ ] <interface> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> dhcp-options no-default-route
+    - [ ] <interface> dhcp-options default-route-distance <distance>
+    - [ ] <interface> dhcp-options reject <address>
+    - [ ] <interface> dhcpv6-options duid <duid> 
+    - [ ] <interface> dhcpv6-options parameters-only
+    - [ ] <interface> dhcpv6-options rapid-commit
+    - [ ] <interface> dhcpv6-options temporary
+    - [ ] <interface> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> address <address> 
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> sla-id <id>
+    - [ ] <interface> member interface <member>
+    - [ ] <interface> member interface <member> priority <priority> 
+    - [ ] <interface> member interface <member> cost <cost> 
+    - [ ] <interface> aging <time>
+    - [ ] <interface> max-age <time>
+    - [ ] <interface> igmp querier 
+    - [ ] <interface> stp 
+    - [ ] <interface> forwarding-delay <delay> 
+    - [ ] <interface> hello-time <interval>
+    - [ ] <interface> enable-vlan
+    - [ ] <interface> vif <vlan-id>
+    - [ ] <interface> vif <vlan-id> address <address | dhcp | dhcpv6>
+    - [ ] <interface> vif <vlan-id> description <description> 
+    - [ ] <interface> vif <vlan-id> disable 
+    - [ ] <interface> vif <vlan-id> disable-link-detect
+    - [ ] <interface> vif <vlan-id> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> vif <vlan-id> mtu <mtu> 
+    - [ ] <interface> vif <vlan-id> ip arp-cache-timeout
+    - [ ] <interface> vif <vlan-id> ip disable-arp-filter
+    - [ ] <interface> vif <vlan-id> ip disable-forwarding 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-accept
+    - [ ] <interface> vif <vlan-id> ip enable-arp-announce 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-ignore 
+    - [ ] <interface> vif <vlan-id> ip enable-proxy-arp 
+    - [ ] <interface> vif <vlan-id> ip proxy-arp-pvlan 
+    - [ ] <interface> vif <vlan-id> ip source-validation <strict | loose | disable>
+    - [ ] <interface> vif <vlan-id> ipv6 address autoconf 
+    - [ ] <interface> vif <vlan-id> ipv6 address eui64 <prefix>
+    - [ ] <interface> vif <vlan-id> ipv6 address no-default-link-local
+    - [ ] <interface> vif <vlan-id> ipv6 disable-forwarding 
+    - [ ] <interface> vif <vlan-id> vrf <vrf>
+    - [ ] <interface> vif <vlan-id> dhcp-options client-id <description> 
+    - [ ] <interface> vif <vlan-id> dhcp-options host-name <hostname> 
+    - [ ] <interface> vif <vlan-id> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> vif <vlan-id> dhcp-options no-default-route 
+    - [ ] <interface> vif <vlan-id> dhcp-options default-route-distance <distance>
+    - [ ] <interface> vif <vlan-id> dhcp-options reject <address>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options duid <duid> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options parameters-only
+    - [ ] <interface> vif <vlan-id> dhcpv6-options rapid-commit 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options temporary 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> address <address> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> sla-id <id>
+    - [ ] <interface> member interface <member> native-vlan <vlan-id>
+    - [ ] <interface> member interface <member> allowed-vlan <vlan-id> 
+    - [ ] <interface> mirror ingress <monitor-interface>
+    - [ ] <interface> mirror egress <monitor-interface>
+  - [ ] dummy
+    - [ ] <interface> address <address> 
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable
+    - [ ] <interface> vrf <vrf>
+  - [ ] ethernet
+    - [ ] <interface> address <address | dhcp | dhcpv6>
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect 
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> mtu <mtu> 
+    - [ ] <interface> ip arp-cache-timeout 
+    - [ ] <interface> ip disable-arp-filter 
+    - [ ] <interface> ip disable-forwarding 
+    - [ ] <interface> ip enable-arp-accept 
+    - [ ] <interface> ip enable-arp-announce
+    - [ ] <interface> ip enable-arp-ignore 
+    - [ ] <interface> ip enable-proxy-arp 
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf
+    - [ ] <interface> ipv6 address eui64 <prefix> 
+    - [ ] <interface> ipv6 address no-default-link-local 
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf> 
+    - [ ] <interface> dhcp-options client-id <description>
+    - [ ] <interface> dhcp-options host-name <hostname> 
+    - [ ] <interface> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> dhcp-options no-default-route 
+    - [ ] <interface> dhcp-options default-route-distance <distance> 
+    - [ ] <interface> dhcp-options reject <address> 
+    - [ ] <interface> dhcpv6-options duid <duid> 
+    - [ ] <interface> dhcpv6-options parameters-only 
+    - [ ] <interface> dhcpv6-options rapid-commit
+    - [ ] <interface> dhcpv6-options temporary 
+    - [ ] <interface> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> sla-id <id>
+    - [ ] <interface> duplex <auto | full | half> 
+    - [ ] <interface> speed <auto | 10 | 100 | 1000 | 2500 | 5000 | 10000 | 25000 | 40000 | 50000 | 100000> 
+    - [ ] <interface> mirror <interface>
+    - [ ] <interface> offload <gro | gso | sg | tso | ufo | rps> 
+    - [ ] <interface> xdp
+    - [ ] <interface> eapol ca-cert-file <file> 
+    - [ ] <interface> eapol cert-file <file> 
+    - [ ] <interface> eapol key-file <file> 
+    - [ ] <interface> vif <vlan-id> 
+    - [ ] <interface> vif <vlan-id> address <address | dhcp | dhcpv6>
+    - [ ] <interface> vif <vlan-id> description <description>
+    - [ ] <interface> vif <vlan-id> disable
+    - [ ] <interface> vif <vlan-id> disable-link-detect 
+    - [ ] <interface> vif <vlan-id> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> vif <vlan-id> mtu <mtu> 
+    - [ ] <interface> vif <vlan-id> ip arp-cache-timeout
+    - [ ] <interface> vif <vlan-id> ip disable-arp-filter
+    - [ ] <interface> vif <vlan-id> ip disable-forwarding
+    - [ ] <interface> vif <vlan-id> ip enable-arp-accept
+    - [ ] <interface> vif <vlan-id> ip enable-arp-announce 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-ignore
+    - [ ] <interface> vif <vlan-id> ip enable-proxy-arp 
+    - [ ] <interface> vif <vlan-id> ip proxy-arp-pvlan
+    - [ ] <interface> vif <vlan-id> ip source-validation <strict | loose | disable>
+    - [ ] <interface> vif <vlan-id> ipv6 address autoconf
+    - [ ] <interface> vif <vlan-id> ipv6 address eui64 <prefix> 
+    - [ ] <interface> vif <vlan-id> ipv6 address no-default-link-local
+    - [ ] <interface> vif <vlan-id> ipv6 disable-forwarding
+    - [ ] <interface> vif <vlan-id> vrf <vrf>
+    - [ ] <interface> vif <vlan-id> dhcp-options client-id <description> 
+    - [ ] <interface> vif <vlan-id> dhcp-options host-name <hostname> 
+    - [ ] <interface> vif <vlan-id> dhcp-options vendor-class-id <vendor-id> 
+    - [ ] <interface> vif <vlan-id> dhcp-options no-default-route 
+    - [ ] <interface> vif <vlan-id> dhcp-options default-route-distance <distance> 
+    - [ ] <interface> vif <vlan-id> dhcp-options reject <address> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options duid <duid>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options parameters-only 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options rapid-commit 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options temporary 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> sla-id <id>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> description <description> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> disable 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> disable-link-detect
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> mtu <mtu>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip arp-cache-timeout
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip disable-arp-filter
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip disable-forwarding
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-arp-accept
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-arp-announce 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-arp-ignore 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-proxy-arp 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip proxy-arp-pvlan
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ipv6 address autoconf
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ipv6 address no-default-link-local
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ipv6 disable-forwarding
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> vrf <vrf> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options client-id <description>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options host-name <hostname> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options no-default-route
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options default-route-distance <distance> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options reject <address> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options duid <duid> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options parameters-only 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options rapid-commit 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options temporary 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options pd <id> interface <delegatee> sla-id <id> 
+    - [ ] <interface> mirror ingress <monitor-interface>
+    - [ ] <interface> mirror egress <monitor-interface> 
+  - [ ] geneve
+    - [ ] <interface> address <address>
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> mtu <mtu>
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter 
+    - [ ] <interface> ip disable-forwarding 
+    - [ ] <interface> ip enable-arp-accept
+    - [ ] <interface> ip enable-arp-announce 
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf 
+    - [ ] <interface> ipv6 address eui64 <prefix>
+    - [ ] <interface> ipv6 address no-default-link-local
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf>
+    - [ ] <interface> remote <address>
+    - [ ] <interface> vni <vni>
+  - [ ] l2tpv3
+    - [ ] <interface> address <address> 
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> mtu <mtu>
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter
+    - [ ] <interface> ip disable-forwarding 
+    - [ ] <interface> ip enable-arp-accept
+    - [ ] <interface> ip enable-arp-announce 
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf 
+    - [ ] <interface> ipv6 address eui64 <prefix> 
+    - [ ] <interface> ipv6 address no-default-link-local 
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf> 
+    - [ ] <interface> encapsulation <udp | ip> 
+    - [ ] <interface> source-address <address> 
+    - [ ] <interface> remote <address>
+    - [ ] <interface> session-id <id>
+    - [ ] <interface> peer-session-id <id>
+    - [ ] <interface> tunnel-id <id> 
+    - [ ] <interface> peer-tunnel-id <id>
+  - [ ] loopback
+    - [ ] <interface> address <address>
+    - [ ] <interface> description <description>
+  - [ ] macsec
+    - [ ] <interface> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> mtu <mtu> 
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter 
+    - [ ] <interface> ip disable-forwarding 
+    - [ ] <interface> ip enable-arp-accept
+    - [ ] <interface> ip enable-arp-announce 
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable>
+    - [ ] <interface> ipv6 address autoconf
+    - [ ] <interface> ipv6 address eui64 <prefix> 
+    - [ ] <interface> ipv6 address no-default-link-local
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf>
+    - [ ] <interface> dhcp-options client-id <description>
+    - [ ] <interface> dhcp-options host-name <hostname> 
+    - [ ] <interface> dhcp-options vendor-class-id <vendor-id> 
+    - [ ] <interface> dhcp-options no-default-route 
+    - [ ] <interface> dhcp-options default-route-distance <distance> 
+    - [ ] <interface> dhcp-options reject <address>
+    - [ ] <interface> dhcpv6-options duid <duid> 
+    - [ ] <interface> dhcpv6-options parameters-only
+    - [ ] <interface> dhcpv6-options rapid-commit
+    - [ ] <interface> dhcpv6-options temporary 
+    - [ ] <interface> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> sla-id <id>  
+    - [ ] <interface> security cipher <gcm-aes-128 | gcm-aes-256>
+    - [ ] <interface> security encrypt
+    - [ ] <interface> source-interface <physical-source> 
+    - [ ] <interface> security mka cak <key> 
+    - [ ] <interface> security mka ckn <key> 
+    - [ ] <interface> security mka priority <priority> 
+    - [ ] <interface> security replay-window <window>
+  - [ ] openvpn
+  - [ ] pppoe
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> vrf <vrf>
+    - [ ] <interface> access-concentrator <name>
+    - [ ] <interface> authentication user <username> 
+    - [ ] <interface> authentication password <password> 
+    - [ ] <interface> connect-on-demand 
+    - [ ] <interface> default-route [auto | force | none] 
+    - [ ] <interface> idle-timeout <time>
+    - [ ] <interface> local-address <address> 
+    - [ ] <interface> mtu <mtu> 
+    - [ ] <interface> no-peer-dns 
+    - [ ] <interface> remote-address <address> 
+    - [ ] <interface> service-name <name>
+    - [ ] <interface> source-interface <source-interface> 
+    - [ ] <interface> ipv6 address autoconf
+    - [ ] <interface> dhcpv6-options pd <id> length <length> 
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> address <address> 
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> sla-id <id> 
+  - [ ] pseudo-ethernet
+    - [ ] <interface> address <address | dhcp | dhcpv6>
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> mtu <mtu>
+    - [ ] <interface> ip arp-cache-timeout 
+    - [ ] <interface> ip disable-arp-filter 
+    - [ ] <interface> ip disable-forwarding 
+    - [ ] <interface> ip enable-arp-accept 
+    - [ ] <interface> ip enable-arp-announce 
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp 
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf 
+    - [ ] <interface> ipv6 address eui64 <prefix> 
+    - [ ] <interface> ipv6 address no-default-link-local 
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf>
+    - [ ] <interface> dhcp-options client-id <description>
+    - [ ] <interface> dhcp-options host-name <hostname> 
+    - [ ] <interface> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> dhcp-options no-default-route 
+    - [ ] <interface> dhcp-options default-route-distance <distance>
+    - [ ] <interface> dhcp-options reject <address> 
+    - [ ] <interface> dhcpv6-options duid <duid> 
+    - [ ] <interface> dhcpv6-options parameters-only 
+    - [ ] <interface> dhcpv6-options rapid-commit 
+    - [ ] <interface> dhcpv6-options temporary 
+    - [ ] <interface> dhcpv6-options pd <id> length <length> 
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> sla-id <id> 
+    - [ ] <interface> source-interface <ethX> 
+    - [ ] <interface> vif <vlan-id> 
+    - [ ] <interface> vif <vlan-id> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> vif <vlan-id> description <description> 
+    - [ ] <interface> vif <vlan-id> disable
+    - [ ] <interface> vif <vlan-id> disable-link-detect 
+    - [ ] <interface> vif <vlan-id> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> vif <vlan-id> mtu <mtu>
+    - [ ] <interface> vif <vlan-id> ip arp-cache-timeout 
+    - [ ] <interface> vif <vlan-id> ip disable-arp-filter 
+    - [ ] <interface> vif <vlan-id> ip disable-forwarding
+    - [ ] <interface> vif <vlan-id> ip enable-arp-accept 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-announce 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-ignore
+    - [ ] <interface> vif <vlan-id> ip enable-proxy-arp 
+    - [ ] <interface> vif <vlan-id> ip proxy-arp-pvlan 
+    - [ ] <interface> vif <vlan-id> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> vif <vlan-id> ipv6 address autoconf 
+    - [ ] <interface> vif <vlan-id> ipv6 address eui64 <prefix>
+    - [ ] <interface> vif <vlan-id> ipv6 address no-default-link-local
+    - [ ] <interface> vif <vlan-id> ipv6 disable-forwarding 
+    - [ ] <interface> vif <vlan-id> vrf <vrf>
+    - [ ] <interface> vif <vlan-id> dhcp-options client-id <description>
+    - [ ] <interface> vif <vlan-id> dhcp-options host-name <hostname> 
+    - [ ] <interface> vif <vlan-id> dhcp-options vendor-class-id <vendor-id> 
+    - [ ] <interface> vif <vlan-id> dhcp-options no-default-route 
+    - [ ] <interface> vif <vlan-id> dhcp-options default-route-distance <distance>
+    - [ ] <interface> vif <vlan-id> dhcp-options reject <address> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options duid <duid> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options parameters-only
+    - [ ] <interface> vif <vlan-id> dhcpv6-options rapid-commit
+    - [ ] <interface> vif <vlan-id> dhcpv6-options temporary 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> length <length> 
+    - [ ] interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> address <address> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> sla-id <id>
+  - [ ] tunnel
+    - [ ] <interface> address <address>
+    - [ ] <interface> description <description>
+    - [ ] <interface> disable 
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> mtu <mtu> 
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter
+    - [ ] <interface> ip disable-forwarding
+    - [ ] <interface> ip enable-arp-accept
+    - [ ] <interface> ip enable-arp-announce
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf 
+    - [ ] <interface> ipv6 address eui64 <prefix>
+    - [ ] <interface> ipv6 address no-default-link-local
+    - [ ] <interface> ipv6 disable-forwarding
+    - [ ] <interface> vrf <vrf> 
+  - [ ] vti
+    - [ ] <interface> address <address>
+    - [ ] <interface> description <discription>
+  - [ ] vxlan
+    - [ ] <interface> address <address> 
+    - [ ] <interface> description <description>
+    - [ ] <interface> disable
+    - [ ] <interface> disable-flow-control
+    - [ ] <interface> disable-link-detect
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> mtu <mtu> 
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter
+    - [ ] <interface> ip disable-forwarding
+    - [ ] <interface> ip enable-arp-accept
+    - [ ] <interface> ip enable-arp-announce 
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp
+    - [ ] <interface> ip proxy-arp-pvlan 
+    - [ ] <interface> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> ipv6 address autoconf
+    - [ ] <interface> ipv6 address eui64 <prefix> 
+    - [ ] <interface> ipv6 address no-default-link-local
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf>
+    - [ ] <interface> vni <number> 
+    - [ ] <interface> port <port> 
+    - [ ] <interface> source-address <interface> 
+    - [ ] <interface> remote <address> 
+    - [ ] <interface> source-interface <interface>
+    - [ ] <interface> group <address>
+  - [ ] wifi
+    - [ ] <interface> address <address | dhcp | dhcpv6>
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> disable-flow-control 
+    - [ ] <interface> disable-link-detect 
+    - [ ] <interface> mac <xx:xx:xx:xx:xx:xx>
+    - [ ] <interface> mtu <mtu>
+    - [ ] <interface> ip arp-cache-timeout
+    - [ ] <interface> ip disable-arp-filter
+    - [ ] <interface> ip disable-forwarding 
+    - [ ] <interface> ip enable-arp-accept 
+    - [ ] <interface> ip enable-arp-announce 
+    - [ ] <interface> ip enable-arp-ignore
+    - [ ] <interface> ip enable-proxy-arp
+    - [ ] <interface> ip proxy-arp-pvlan
+    - [ ] <interface> ip source-validation <strict | loose | disable>
+    - [ ] <interface> ipv6 address autoconf
+    - [ ] <interface> ipv6 address eui64 <prefix>
+    - [ ] <interface> ipv6 address no-default-link-local
+    - [ ] <interface> ipv6 disable-forwarding 
+    - [ ] <interface> vrf <vrf> 
+    - [ ] <interface> dhcp-options client-id <description>
+    - [ ] <interface> dhcp-options host-name <hostname>
+    - [ ] <interface> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> dhcp-options no-default-route 
+    - [ ] <interface> dhcp-options default-route-distance <distance>
+    - [ ] <interface> dhcp-options reject <address> 
+    - [ ] <interface> dhcpv6-options duid <duid> 
+    - [ ] <interface> dhcpv6-options parameters-only
+    - [ ] <interface> dhcpv6-options rapid-commit 
+    - [ ] <interface> dhcpv6-options temporary
+    - [ ] <interface> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> address <address>
+    - [ ] <interface> dhcpv6-options pd <id> interface <delegatee> sla-id <id> 
+    - [ ] <interface> channel <number>
+    - [ ] <interface> country-code <cc>
+    - [ ] <interface> disable-broadcast-ssid
+    - [ ] <interface> expunge-failing-stations 
+    - [ ] <interface> isolate-stations
+    - [ ] <interface> max-stations 
+    - [ ] <interface> mgmt-frame-protection 
+    - [ ] <interface> mode <a | b | g | n | ac> 
+    - [ ] <interface> physical-device <device> 
+    - [ ] <interface> reduce-transmit-power <number> 
+    - [ ] <interface> ssid <ssid> 
+    - [ ] <interface> type <access-point | station | monitor> 
+    - [ ] <interface> capabilities require-ht
+    - [ ] <interface> capabilities require-hvt 
+    - [ ] <interface> capabilities ht 40mhz-incapable 
+    - [ ] <interface> capabilities ht auto-powersave 
+    - [ ] <interface> capabilities ht channel-set-width <ht20 | ht40+ | ht40->
+    - [ ] <interface> capabilities ht delayed-block-ack
+    - [ ] <interface> capabilities ht dsss-cck-40 
+    - [ ] <interface> capabilities ht greenfield 
+    - [ ] <interface> capabilities ht ldpc 
+    - [ ] <interface> capabilities ht lsig-protection
+    - [ ] <interface> capabilities ht max-amsdu <3839 | 7935>
+    - [ ] <interface> capabilities ht short-gi <20 | 40>
+    - [ ] <interface> capabilities ht smps <static | dynamic>
+    - [ ] <interface> capabilities ht stbc rx <num>
+    - [ ] <interface> capabilities ht stbc tx
+    - [ ] <interface> capabilities vht antenna-count 
+    - [ ] <interface> capabilities vht antenna-pattern-fixed
+    - [ ] interface> capabilities vht beamform <single-user-beamformer | single-user-beamformee | multi-user-beamformer | multi-user-beamformee>
+    - [ ] <interface> capabilities vht center-channel-freq <freq-1 | freq-2> <number> 
+    - [ ] <interface> capabilities vht channel-set-width <0 | 1 | 2 | 3> 
+    - [ ] <interface> capabilities vht ldpc
+    - [ ] <interface> capabilities vht link-adaptation
+    - [ ] <interface> capabilities vht max-mpdu <value> 
+    - [ ] <interface> capabilities vht max-mpdu-exp <value>
+    - [ ] <interface> capabilities vht short-gi <80 | 160> 
+    - [ ] <interface> capabilities vht stbc rx <num>
+    - [ ] <interface> capabilities vht stbc tx
+    - [ ] <interface> capabilities vht tx-powersave
+    - [ ] <interface> capabilities vht vht-cf 
+    - [ ] <interface> vif <vlan-id>
+    - [ ] <interface> vif <vlan-id> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> vif <vlan-id> description <description> 
+    - [ ] <interface> vif <vlan-id> disable 
+    - [ ] <interface> vif <vlan-id> disable-link-detect 
+    - [ ] <interface> vif <vlan-id> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> vif <vlan-id> mtu <mtu> 
+    - [ ] <interface> vif <vlan-id> ip arp-cache-timeout 
+    - [ ] <interface> vif <vlan-id> ip disable-arp-filter 
+    - [ ] <interface> vif <vlan-id> ip disable-forwarding
+    - [ ] <interface> vif <vlan-id> ip enable-arp-accept 
+    - [ ] <interface> vif <vlan-id> ip enable-arp-announce
+    - [ ] <interface> vif <vlan-id> ip enable-arp-ignore 
+    - [ ] <interface> vif <vlan-id> ip enable-proxy-arp 
+    - [ ] <interface> vif <vlan-id> ip proxy-arp-pvlan 
+    - [ ] <interface> vif <vlan-id> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> vif <vlan-id> ipv6 address autoconf 
+    - [ ] <interface> vif <vlan-id> ipv6 address eui64 <prefix>
+    - [ ] <interface> vif <vlan-id> ipv6 address no-default-link-local
+    - [ ] <interface> vif <vlan-id> ipv6 disable-forwarding
+    - [ ] <interface> vif <vlan-id> vrf <vrf>
+    - [ ] <interface> vif <vlan-id> dhcp-options client-id <description> 
+    - [ ] <interface> vif <vlan-id> dhcp-options host-name <hostname> 
+    - [ ] <interface> vif <vlan-id> dhcp-options vendor-class-id <vendor-id> 
+    - [ ] <interface> vif <vlan-id> dhcp-options no-default-route
+    - [ ] <interface> vif <vlan-id> dhcp-options default-route-distance <distance>
+    - [ ] <interface> vif <vlan-id> dhcp-options reject <address> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options duid <duid> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options parameters-only 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options rapid-commit 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options temporary 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> address <address> 
+    - [ ] <interface> vif <vlan-id> dhcpv6-options pd <id> interface <delegatee> sla-id <id>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> address <address | dhcp | dhcpv6> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> description <description> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> disable
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> disable-link-detect
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> mac <xx:xx:xx:xx:xx:xx> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> mtu <mtu> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip arp-cache-timeout
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip disable-arp-filter 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip disable-forwarding
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-arp-accept
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-arp-announce 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-arp-ignore
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip enable-proxy-arp
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip proxy-arp-pvlan 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ip source-validation <strict | loose | disable> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ipv6 address autoconf 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ipv6 address eui64 <prefix> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ipv6 address no-default-link-local 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> ipv6 disable-forwarding 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> vrf <vrf> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options client-id <description> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options host-name <hostname>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options vendor-class-id <vendor-id>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options no-default-route 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options default-route-distance <distance>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcp-options reject <address>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options duid <duid> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options parameters-only 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options rapid-commit 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options temporary 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options pd <id> length <length>
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options pd <id> interface <delegatee> address <address> 
+    - [ ] <interface> vif-s <vlan-id> vif-c <vlan-id> dhcpv6-options pd <id> interface <delegatee> sla-id <id> 
+  - [ ] wwan
+    - [ ] <interface> description <description> 
+    - [ ] <interface> disable 
+    - [ ] <interface> vrf <vrf>
+    - [ ] <interface> apn <apn> 
+    - [ ] <interface> backup distance <metric>
+    - [ ] <interface> device <tty>
+    - [ ] <interface> no-peer-dns
+    - [ ] <interface> connect-on-demand 
+- [ ] load-balancing
+- [ ] nat
+  - [ ] 
+- [ ] policy
+- [ ] pbr
+- [ ] protocols
+- [ ] service
+  - [ ] broadcast-relay
+    - [ ] id <n> description <description> 
+    - [ ] id <n> interface <interface> 
+    - [ ] id <n> port <port> 
+    - [ ] id <n> disable 
+    - [ ] disable
+  - [ ] conntrack-sync
+    - [ ] accept-protocol
+    - [ ] event-listen-queue-size <int>
+    - [ ] expect-sync
+    - [ ] failover-mechanism <mechanism>
+    - [ ] cluster group <string>
+    - [ ] vrrp sync-group <1-255>
+    - [ ] ignore-address ipv4 <x.x.x.x>
+    - [ ] interface <ifname>
+    - [ ] mcast-group <x.x.x.x>
+    - [ ] interface <ifname> peer <remote IP of peer>
+    - [ ] sync-queue-size <size>
+  - [ ] console-server
+    - [ ] <device> data-bits [7 | 8]
+    - [ ] <device> description <string> 
+    - [ ] <device> parity [even | odd | none] 
+    - [ ] <device> stop-bits [1 | 2]
+    - [ ] <device> speed [ 300 | 1200 | 2400 | 4800 | 9600 | 19200 | 38400 | 57600 | 115200 ]
+    - [ ] <device> ssh port <port>
+  - [ ] dhcp-relay
+    - [ ] interface <interface> 
+    - [ ] server <server> 
+    - [ ] relay-options relay-agents-packets discard
+    - [ ] relay-options hop-count <count>
+    - [ ] relay-options max-size <size>
+    - [ ] relay-options relay-agents-packet <append | discard | forward | replace> 
+  - [ ] dhcpv6-relay
+    - [ ] listen-interface <interface>
+    - [ ] upstream-interface <interface> address <server> 
+    - [ ] max-hop-count <count>
+    - [ ] use-interface-id-option 
+  - [ ] dhcp-server
+    - [ ] shared-network-name <name> authoritative 
+    - [ ] shared-network-name <name> subnet <subnet> default-router <address> 
+    - [ ] shared-network-name <name> subnet <subnet> dns-server <address> 
+    - [ ] shared-network-name <name> subnet <subnet> lease <time> 
+    - [ ] shared-network-name <name> subnet <subnet> range <n> start <address> 
+    - [ ] shared-network-name <name> subnet <subnet> range <n> stop <address>
+    - [ ] shared-network-name <name> subnet <subnet> exclude <address> 
+    - [ ] shared-network-name <name> subnet <subnet> domain-name <domain-name>
+    - [ ] shared-network-name <name> subnet <subnet> domain-search <domain-name> 
+    - [ ] shared-network-name <name> subnet <subnet> failover local-address <address> 
+    - [ ] shared-network-name <name> subnet <subnet> failover peer-address <address> 
+    - [ ] shared-network-name <name> subnet <subnet> failover name <name> 
+    - [ ] shared-network-name <name> subnet <subnet> failover status <primary | secondary> 
+    - [ ] shared-network-name <name> subnet <subnet> static-mapping <description> mac-address <address>
+    - [ ] shared-network-name <name> subnet <subnet> static-mapping <description> ip-address <address> 
+  - [ ] dhcpv6-server
+    - [ ] preference <preference value> 
+    - [ ] shared-network-name <name> subnet <prefix> lease-time <default | maximum | minimum>
+    - [ ] shared-network-name <name> subnet <prefix> nis-domain <domain-name>
+    - [ ] shared-network-name <name> subnet <prefix> nisplus-domain <domain-name> 
+    - [ ] shared-network-name <name> subnet <prefix> nis-server <address> 
+    - [ ] shared-network-name <name> subnet <prefix> nisplus-server <address>
+    - [ ] shared-network-name <name> subnet <prefix> sip-server <address | fqdn>
+    - [ ] shared-network-name <name> subnet <prefix> sntp-server-address <address> 
+    - [ ] shared-network-name <name> subnet <prefix> prefix-delegation start <address> prefix-length <length> 
+    - [ ] shared-network-name <name> subnet <prefix> prefix-delegation start <address> stop <address> 
+  - [ ] dns
+    - [ ] forwarding system
+    - [ ] forwarding name-server <address> 
+    - [ ] forwarding domain <domain-name> server <address> 
+    - [ ] forwarding allow-from <network>
+    - [ ] forwarding dnssec <off | process-no-validate | process | log-fail | validate>
+    - [ ] forwarding ignore-hosts-file 
+    - [ ] forwarding max-cache-entries 
+    - [ ] forwarding negative-ttl 
+    - [ ] forwarding listen-address 
+    - [ ] dynamic interface <interface> rfc2136 <service-name> 
+    - [ ] dynamic interface <interface> rfc2136 <service-name> key <keyfile>
+    - [ ] dynamic interface <interface> rfc2136 <service-name> server <server>
+    - [ ] dynamic interface <interface> rfc2136 <service-name> zone <zone> 
+    - [ ] dynamic interface <interface> rfc2136 <service-name> record <record>
+    - [ ] dynamic interface <interface> rfc2136 <service-name> ttl <ttl> 
+    - [ ] dynamic interface <interface> service <service> host-name <hostname>
+    - [ ] dynamic interface <interface> service <service> login <username> 
+    - [ ] dynamic interface <interface> service <service> password <password>
+    - [ ] dynamic interface <interface> service <service> protocol <protocol>
+    - [ ] dynamic interface <interface> service <service> server <server> 
+    - [ ] dynamic interface <interface> use-web url <url> 
+    - [ ] dynamic interface <interface> use-web skip <pattern>
+  - [ ] https
+    - [ ] api keys id <name> key <apikey> 
+    - [ ] api debug 
+    - [ ] api port <port>
+    - [ ] api strict
+    - [ ] virtual-host <vhost> listen-address
+    - [ ] virtual-host <vhost> listen-port <1-65535>
+    - [ ] api-restrict virtual-host <vhost> 
+    - [ ] certificates certbot domain-name <text> 
+    - [ ] certificates certbot email
+    - [ ] certificates system-generated-certificate 
+    - [ ] certificates system-generated-certificate lifetime <days>
+  - [ ] lldp
+    - [ ] management-address <address>
+    - [ ] interface <interface>
+    - [ ] interface <interface> disable 
+    - [ ] snmp enable
+    - [ ] legacy-protocols <cdp|edp|fdp|sonmp>
+  - [ ] mdns
+    - [ ] repeater interface <interface>
+    - [ ] repeater disable 
+  - [ ] pppoe-server
+    - [ ] access-concentrator <name> 
+    - [ ] authentication mode <local | radius> 
+    - [ ] authentication local-users username <name> password <password>
+    - [ ] interface <interface> 
+    - [ ] gateway-address <address> 
+    - [ ] name-server <address>
+    - [ ] client-ip-pool start <address> 
+    - [ ] client-ip-pool stop <address>
+    - [ ] client-ip-pool subnet <address>
+    - [ ] authentication radius server <address> key <secret> 
+    - [ ] authentication radius dynamic-author <key | port | server>
+    - [ ] interface <interface> <vlan-id | vlan range> <text>
+    - [ ] authentication local-users username <name> rate-limit <download | upload> 
+    - [ ] authentication radius rate-limit enable 
+    - [ ] pado-delay <number-of-ms> sessions <number-of-sessions>
+    - [ ] client-ipv6-pool prefix <address> mask <number-of-bits> 
+    - [ ] client-ipv6-pool delegate <address> delegation-prefix <number-of-bits> 
+  - [ ] router-advert
+    - [ ] interface <interface> hop-limit <limit>
+    - [ ] interface <interface> managed-flag <flag>
+    - [ ] other-config-flag <flag>
+    - [ ] link-mtu <mtu>
+    - [ ] default-lifetime <ttl>
+    - [ ] reachable-time <ttl>
+    - [ ] retrans-timer <milsecs>
+    - [ ] default-preference <something>
+    - [ ] interval <interval>
+    - [ ] dnssl <something>
+    - [ ] name-server <advert-server>
+    - [ ] interface <interface> prefix 2001:DB8::/32
+    - [ ] interface <interface> prefix no-autonomous-flag
+    - [ ] interface <interface> prefix no-on-link-flag
+    - [ ] interface <interface> prefix preferred-lifetime
+    - [ ] interface <interface> prefix valid-lifetime
+    - [ ] interface <interface> no-send-advert 
+  - [ ] salt-minion
+    - [ ] hash <type>
+    - [ ] id <id> 
+    - [ ] interval <1-1440> 
+    - [ ] master <hostname | IP>
+    - [ ] master-key <key>
+  - [ ] snmp
+  - [ ] ssh
+    - [ ] port <port>
+    - [ ] listen-address <address> 
+    - [ ] ciphers <cipher> 
+    - [ ] disable-password-authentication 
+    - [ ] disable-host-validation
+    - [ ] macs <mac> 
+    - [ ] access-control <allow | deny> <group | user> <name> 
+    - [ ] client-keepalive-interval <interval>
+    - [ ] key-exchange <kex> 
+    - [ ] loglevel <quiet | fatal | error | info | verbose> 
+    - [ ] vrf <name>
+  - [ ] tftp-server
+    - [ ] directory <directory>
+    - [ ] listen-address <address>
+    - [ ] allow-upload 
+  - [ ] webproxy
+    - [ ] append-domain <domain> 
+    - [ ] cache-size <size> 
+    - [ ] default-port <port> 
+    - [ ] domain-block <domain>
+    - [ ] domain-noncache <domain> 
+    - [ ] listen-address <address> 
+    - [ ] listen-address <address> disable-transparent 
+    - [ ] listen-address <address> port <port>
+    - [ ] reply-block-mime <mime> 
+    - [ ] reply-body-max-size <size>
+    - [ ] authentication children <number>
+    - [ ] authentication credentials-ttl <time> 
+    - [ ] authentication method <ldap> 
+    - [ ] authentication realm
+    - [ ] authentication ldap base-dn <base-dn> 
+    - [ ] authentication ldap bind-dn <bind-dn>
+    - [ ] authentication ldap filter-expression <expr>
+    - [ ] authentication ldap password <password> 
+    - [ ] authentication ldap persistent-connection 
+    - [ ] authentication ldap port <port>
+    - [ ] authentication ldap server <server> 
+    - [ ] authentication ldap use-ssl
+    - [ ] authentication ldap username-attribute <attr>
+    - [ ] authentication ldap version <2 | 3>
+    - [ ] url-filtering disable
+- [ ] system
+  - [ ] console
+    - [ ] device <device> 
+    - [ ] device <device> speed <speed> 
+  - [ ] flow-accounting
+    - [ ] interface <interface> 
+    - [ ] disable-imt
+    - [ ] enable-egress 
+    - [ ] buffer-size <buffer size>
+    - [ ] syslog-facility <facility>
+    - [ ] netflow version <version>
+    - [ ] netflow server <address> 
+    - [ ] netflow source-ip <address>
+    - [ ] netflow engine-id <id> 
+    - [ ] netflow sampling-rate <rate>
+    - [ ] netflow timeout expiry-interval <interval> 
+    - [ ] netflow max-flows <n> 
+    - [ ] sflow server <address> 
+    - [ ] sflow sampling-rate <rate>
+    - [ ] sflow agent-address <address>
+  - [ ] host-name <hostname>
+  - [ ] domain-name <domain>
+  - [ ] static-host-mapping
+    - [ ] host-name <hostname> inet <address> 
+    - [ ] host-name <hostname> alias <alias> 
+  - [ ] ip
+    - [ ] disable-forwarding 
+    - [ ] arp table-size <number> 
+    - [ ] multipath layer4-hashing
+  - [ ] ipv6
+    - [ ] disable
+    - [ ] disable-forwarding
+    - [ ] neighbor table-size <number> 
+    - [ ] strict-dad 
+    - [ ] multipath layer4-hashing 
+  - [ ] lcd
+    - [ ] device <device>
+    - [ ] model <model>
+  - [ ] login
+    - [ ] user <name> full-name <string>
+    - [ ] user <name> authentication plaintext-password <password> 
+    - [ ] user <name> authentication encrypted-password <password> 
+    - [ ] user <username> authentication public-keys <identifier> key <key> 
+    - [ ] user <username> authentication public-keys <identifier> type <type> 
+    - [ ] radius server <address> secret <secret>
+    - [ ] radius server <address> port <port
+    - [ ] radius server <address> timeout <timeout> 
+    - [ ] radius server <address> disable
+    - [ ] radius source-address <address>
+    - [ ] banner pre-login <message>
+    - [ ] banner post-login <message>
+  - [ ] name-server <address>
+  - [ ] domain-search
+    - [ ] domain <domain>
+  - [ ] ntp
+    - [ ] server <address>
+    - [ ] server <address> <noselect | pool | preempt | prefer> 
+    - [ ] listen-address <address> 
+    - [ ] allow-clients address <address> 
+    - [ ] vrf <name> 
+  - [ ] option
+    - [ ] ctrl-alt-delete <ignore | reboot | poweroff> 
+    - [ ] reboot-on-panic
+    - [ ] startup-beep 
+    - [ ] http-client source-address <address>
+    - [ ] http-client source-interface <interface> 
+    - [ ] keyboard-layout <us | fr | de | fi | no | dk> 
+    - [ ] performance < throughput | latency >
+  - [ ] proxy
+    - [ ] url <url>
+    - [ ] port <port>
+    - [ ] username <username>
+    - [ ] password <password>
+  - [ ] syslog
+    - [ ] console facility <keyword> level <keyword> 
+    - [ ] file <filename> facility <keyword> level <keyword>
+    - [ ] file <filename> archive size <size>
+    - [ ] file <filename> archive file <number>
+    - [ ] host <address> facility <keyword> level <keyword>
+    - [ ] host <address> facility <keyword> protocol <udp|tcp> 
+    - [ ] user <username> facility <keyword> level <keyword> 
+  - [ ] task-scheduler
+    - [ ] task <task> interval <interval>
+    - [ ] task <task> crontab-spec <spec> 
+    - [ ] task <task> executable path <path> 
+    - [ ] task <task> executable arguments <args> 
+  - [ ] time-zone <timezone>
+- [ ] traffic-policy
+- [ ] vpn
+- [ ] vrf
+  - [ ] name <name>
+  - [ ] name <name> table <id>
+  - [ ] bind-to-all
+- [ ] zone-policy 
