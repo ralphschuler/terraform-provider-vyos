@@ -2,8 +2,8 @@ package hashicups
 
 import (
 	"context"
+	"net/http"
 
-	"github.com/hashicorp-demoapp/hashicups-client-go"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -15,18 +15,12 @@ func Provider() *schema.Provider {
 			"host": &schema.Schema{
 				Type:        schema.TypeString,
 				Optional:    true,
-				DefaultFunc: schema.EnvDefaultFunc("HASHICUPS_HOST", nil),
+				DefaultFunc: schema.EnvDefaultFunc("VYOS_HOST", nil),
 			},
-			"username": &schema.Schema{
+			"token": &schema.Schema{
 				Type:        schema.TypeString,
 				Optional:    true,
-				DefaultFunc: schema.EnvDefaultFunc("HASHICUPS_USERNAME", nil),
-			},
-			"password": &schema.Schema{
-				Type:        schema.TypeString,
-				Optional:    true,
-				Sensitive:   true,
-				DefaultFunc: schema.EnvDefaultFunc("HASHICUPS_PASSWORD", nil),
+				DefaultFunc: schema.EnvDefaultFunc("VYOS_TOKEN", nil),
 			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
@@ -42,8 +36,7 @@ func Provider() *schema.Provider {
 }
 
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
-	username := d.Get("username").(string)
-	password := d.Get("password").(string)
+	token := d.Get("token").(string)
 
 	var host *string
 
@@ -56,29 +49,19 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
 
-	if (username != "") && (password != "") {
-		c, err := hashicups.NewClient(host, &username, &password)
+	if token != "" {
+		c, err := http.Post(host, &token)
 		if err != nil {
 			diags = append(diags, diag.Diagnostic{
 				Severity: diag.Error,
-				Summary:  "Unable to create HashiCups client",
-				Detail:   "Unable to authenticate user for authenticated HashiCups client",
+				Summary:  "Unable to create vyos client",
+				Detail:   "Unable to authenticate vyos client",
 			})
 
 			return nil, diags
 		}
 
 		return c, diags
-	}
-
-	c, err := hashicups.NewClient(host, nil, nil)
-	if err != nil {
-		diags = append(diags, diag.Diagnostic{
-			Severity: diag.Error,
-			Summary:  "Unable to create HashiCups client",
-			Detail:   "Unable to create anonymous HashiCups client",
-		})
-		return nil, diags
 	}
 
 	return c, diags
