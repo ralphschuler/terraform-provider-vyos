@@ -1,15 +1,16 @@
 package main
- 
+
 import (
-      "github.com/hashicorp/terraform-plugin-sdk/plugin"
-      "github.com/hashicorp/terraform-plugin-sdk/terraform"
-      "terraform-provider-vyos/vyos"
+	"terraform-provider-vyos/vyos"
+
+	"github.com/hashicorp/terraform-plugin-sdk/plugin"
+	"github.com/hashicorp/terraform-plugin-sdk/terraform"
 )
- 
+
 func main() {
-      plugin.Serve(&plugin.ServeOpts{
-        ProviderFunc: func() terraform.ResourceProvider {
-                return vyos.Provider()
-        },
-      })
+	plugin.Serve(&plugin.ServeOpts{
+		ProviderFunc: func() terraform.ResourceProvider {
+			return vyos.Provider()
+		},
+	})
 }
