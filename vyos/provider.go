@@ -1,68 +1,24 @@
-package hashicups
+package vyos
 
 import (
-	"context"
-	"net/http"
-
-	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-// Provider -
 func Provider() *schema.Provider {
 	return &schema.Provider{
-		Schema: map[string]*schema.Schema{
-			"host": &schema.Schema{
-				Type:        schema.TypeString,
-				Optional:    true,
-				DefaultFunc: schema.EnvDefaultFunc("VYOS_HOST", nil),
-			},
-			"token": &schema.Schema{
-				Type:        schema.TypeString,
-				Optional:    true,
-				DefaultFunc: schema.EnvDefaultFunc("VYOS_TOKEN", nil),
-			},
-		},
 		ResourcesMap: map[string]*schema.Resource{
-			"hashicups_order": resourceOrder(),
+			"vyos_interface_bond":     resourceInterfaceBond(),
+			"vyos_interface_bridge":   resourceInterfaceBridge(),
+			"vyos_interface_dummy":    resourceInterfaceDummy(),
+			"vyos_interface_ethernet": resourceInterfaceEthernet(),
+			"vyos_interface_geneve":   resourceInterfaceGeneve(),
+			"vyos_interface_l2tpv3":   resourceInterfaceL2tpv3(),
+			"vyos_interface_loopback": resourceInterfaceLoopback(),
+			"vyos_interface_macsec":   resourceInterfaceMacsec(),
+			"vyos_interface_macvlan":  resourceInterfaceMacvlan(),
+			"vyos_interface_pppoe":    resourceInterfacePppoe(),
+			"vyos_interface_tunnel":   resourceInterfaceTunnel(),
 		},
-		DataSourcesMap: map[string]*schema.Resource{
-			"hashicups_coffees":     dataSourceCoffees(),
-			"hashicups_ingredients": dataSourceIngredients(),
-			"hashicups_order":       dataSourceOrder(),
-		},
-		ConfigureContextFunc: providerConfigure,
+		DataSourcesMap: map[string]*schema.Resource{},
 	}
-}
-
-func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
-	token := d.Get("token").(string)
-
-	var host *string
-
-	hVal, ok := d.GetOk("host")
-	if ok {
-		tempHost := hVal.(string)
-		host = &tempHost
-	}
-
-	// Warning or errors can be collected in a slice type
-	var diags diag.Diagnostics
-
-	if token != "" {
-		c, err := http.Post(host, &token)
-		if err != nil {
-			diags = append(diags, diag.Diagnostic{
-				Severity: diag.Error,
-				Summary:  "Unable to create vyos client",
-				Detail:   "Unable to authenticate vyos client",
-			})
-
-			return nil, diags
-		}
-
-		return c, diags
-	}
-
-	return c, diags
 }
